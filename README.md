@@ -48,6 +48,6 @@ int main()
 		printf("%s %s : ", info.fields[i].type, info.fields[i].name);
 	}
 
-    return 0;
+	return 0;
 }
 ```

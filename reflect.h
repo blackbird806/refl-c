@@ -8,17 +8,17 @@
 
 typedef struct field_t
 {
-    const char* type;
-    const char* name;
-    size_t offset;
+	const char* type;
+	const char* name;
+	size_t offset;
 	void* attr;
 } field;
 
 typedef struct reflect_info_t
 {
 	const char* struct_name;
-    size_t num_fields;
-    field const* fields;
+	size_t num_fields;
+	field const* fields;
 } reflect_info;
 
 size_t num_reflected_structs = 0;
@@ -53,21 +53,21 @@ reflect_info* get_struct_info(const char* struct_name)
 #define REFLECT_STRUCT_BEGIN(S)\
 reflect_info get_reflect_info_##S () \
 { \
-    reflect_info info = {};\
+	reflect_info info = {};\
 	info.struct_name = #S;\
-    static const field s_fields[] = { 
+	static const field s_fields[] = { 
 
 #define REFLECT_MEMBER_ATTR(S, T, M, A)\
-        { #T, #M, offsetof(S, M), & (A)},
+		{ #T, #M, offsetof(S, M), & (A)},
 
 #define REFLECT_MEMBER(S, T, M)\
-        { #T, #M, offsetof(S, M), NULL},
+		{ #T, #M, offsetof(S, M), NULL},
 
 #define REFLECT_STRUCT_END() \
-    };\
-    info.fields = s_fields;\
-    info.num_fields = sizeof(s_fields) / sizeof(s_fields[0]);\
-    return info;\
+	};\
+	info.fields = s_fields;\
+	info.num_fields = sizeof(s_fields) / sizeof(s_fields[0]);\
+	return info;\
 }
 
 #define GET_MEMBER_PTR(S, F) ((char*)S + F.offset)

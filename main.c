@@ -10,19 +10,19 @@
 
 typedef struct foo_t
 {
-    int a, b, c;
+	int a, b, c;
 	float x;
 	double r;
 	test_s test;
 } foo;
 
 REFLECT_STRUCT_BEGIN(foo)
-    REFLECT_MEMBER(foo, int, a)
-    REFLECT_MEMBER(foo, int, b)
-    REFLECT_MEMBER(foo, int, c)
-    REFLECT_MEMBER(foo, float, x)
-    REFLECT_MEMBER(foo, double, r)
-    REFLECT_MEMBER(foo, test_s, test)
+	REFLECT_MEMBER(foo, int, a)
+	REFLECT_MEMBER(foo, int, b)
+	REFLECT_MEMBER(foo, int, c)
+	REFLECT_MEMBER(foo, float, x)
+	REFLECT_MEMBER(foo, double, r)
+	REFLECT_MEMBER(foo, test_s, test)
 REFLECT_STRUCT_END()
 
 typedef struct bar_t
@@ -35,9 +35,9 @@ typedef struct bar_t
 attribute attr = { PRINTABLE, NULL};
 
 REFLECT_STRUCT_BEGIN(bar)
-    REFLECT_MEMBER_ATTR(bar, foo, f, attr)
-    REFLECT_MEMBER(bar, int, p)
-    REFLECT_MEMBER_ATTR(bar, float, t, attr)
+	REFLECT_MEMBER_ATTR(bar, foo, f, attr)
+	REFLECT_MEMBER(bar, int, p)
+	REFLECT_MEMBER_ATTR(bar, float, t, attr)
 REFLECT_STRUCT_END()
 
 int main()
@@ -46,7 +46,7 @@ int main()
 	REGISTER_STRUCT(bar);
 	REGISTER_STRUCT(test_s);
 	
-    reflect_info info = get_reflect_info_bar();
+	reflect_info info = get_reflect_info_bar();
 	bar b;
 	b.p = 45;
 	b.t = 45.2f;
@@ -64,7 +64,7 @@ int main()
 
 	print_struct(info, &b);
 
-    return 0;
+	return 0;
 }
 
 
