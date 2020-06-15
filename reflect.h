@@ -17,7 +17,7 @@ typedef struct field_t
 typedef struct reflect_info_t
 {
 	const char* struct_name;
-    size_t nbFields;
+    size_t num_fields;
     field const* fields;
 } reflect_info;
 
@@ -66,7 +66,7 @@ reflect_info get_reflect_info_##S () \
 #define REFLECT_STRUCT_END() \
     };\
     info.fields = s_fields;\
-    info.nbFields = sizeof(s_fields) / sizeof(s_fields[0]);\
+    info.num_fields = sizeof(s_fields) / sizeof(s_fields[0]);\
     return info;\
 }
 

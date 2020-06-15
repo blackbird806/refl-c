@@ -17,7 +17,7 @@ void print_struct_indent(reflect_info info, void* struct_, unsigned indent_level
 {
 	print_indent(indent_level);
 	printf("struct %s :\n", info.struct_name);
-	for (size_t i = 0; i < info.nbFields; i++)
+	for (size_t i = 0; i < info.num_fields; i++)
 	{
 		print_indent(indent_level);
 
