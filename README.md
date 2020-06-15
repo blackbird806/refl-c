@@ -8,19 +8,19 @@ Registering manually reflected structs by calling REGISTER_STRUCT(...) is needed
 
 Types are stored as string so you're not forced to use C types when registering to the reflection.
 
-You can pass an attribute (an arbitrary user pointer) to a reflected data with REFLECT_MEMBER_ATTR(...).
+You can pass an attribute (an arbitrary user provided pointer) to a reflected data with REFLECT_MEMBER_ATTR(...).
 
 Declaring a reflected struct looks like this :
 ```C
 typedef struct foo_t
 {
-    int a;
-	float x;
+	int a;
+ 	float x;
 } foo;
 
 REFLECT_STRUCT_BEGIN(foo)
-    REFLECT_MEMBER(foo, int, a)
-    REFLECT_MEMBER(foo, float, x)
+	REFLECT_MEMBER(foo, int, a)
+	REFLECT_MEMBER(foo, float, x)
 REFLECT_STRUCT_END()
 ```
 
@@ -45,7 +45,7 @@ int main()
 	for (int i = 0; i < info.num_fields; i++)
 	{
 		// print the name and the type of each reflected field
-	printf("%s %s : ", info.fields[i].type, info.fields[i].name);
+		printf("%s %s : ", info.fields[i].type, info.fields[i].name);
 	}
 
     return 0;
