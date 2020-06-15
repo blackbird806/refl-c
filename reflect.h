@@ -30,7 +30,7 @@ void add_reflected_struct(reflect_info info)
 	assert(new_infos != NULL);
 	if (num_reflected_structs > 0)
 	{
-		memcpy(new_infos, reflected_structs,  sizeof(reflect_info) * (num_reflected_structs));
+		memcpy(new_infos, reflected_structs,  sizeof(reflect_info) * num_reflected_structs);
 		free(reflected_structs);
 	}
 	new_infos[num_reflected_structs] = info;

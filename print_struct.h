@@ -44,6 +44,11 @@ void print_struct_indent(reflect_info info, void* struct_, unsigned indent_level
 			double val = *(double*) member_ptr;
 			printf("%f", val);
 		}
+		else if (strcmp(info.fields[i].type, "string") == 0)
+		{
+			const char* val = *(const char**) member_ptr;
+			printf("%s", val);
+		}
 		else 
 		{
 			// if type name is not recognized check if it is a registered struct
