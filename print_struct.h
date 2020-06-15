@@ -23,7 +23,7 @@ void print_struct_indent(reflect_info info, void* struct_, unsigned indent_level
 
 #ifdef REQUIRE_PRINTABLE_ATTRIBUTE // print only fields with the attribute flag PRINTABLE
 		attribute* attr = (attribute*) info.fields[i].attr;
-		if (attr == NULL || attr != NULL && attr->flags & PRINTABLE != PRINTABLE)
+		if (attr == NULL || attr->flags & PRINTABLE != PRINTABLE)
 			continue;
 #endif
 		printf("%s %s : ", info.fields[i].type, info.fields[i].name);
