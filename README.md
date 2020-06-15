@@ -37,7 +37,7 @@ int main()
 		printf("struct : %s\n", reflected_structs[i].struct_name);
 	}
 
-    reflect_info info = get_reflect_info_foo();
+	reflect_info info = get_reflect_info_foo();
 	// or
 	info = *get_struct_info("foo"); // works only if foo was registered with REGISTER_STRUCT(foo) 
 	get_struct_info("not a true struct"); // will return NULL
