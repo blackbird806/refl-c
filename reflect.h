@@ -21,6 +21,19 @@ typedef struct reflect_info_t
 	field const* fields;
 } reflect_info;
 
+field const* get_field(reflect_info const* info, const char* field_name)
+{
+	assert(info);
+	for (size_t i = 0; i < info->num_fields; i++)
+	{
+		if (strcmp(info->fields[i].name, field_name) == 0)
+		{
+			return &info->fields[i];
+		}
+	}
+	return NULL;
+}
+
 size_t num_reflected_structs = 0;
 reflect_info* reflected_structs = NULL;
 
@@ -70,7 +83,7 @@ reflect_info get_reflect_info_##S () \
 	return info;\
 }
 
-#define GET_MEMBER_PTR(S, F) ((char*)S + F.offset)
+#define GET_MEMBER_PTR(S, F) ((char*)S + (F).offset)
 
 #define REGISTER_STRUCT(S) add_reflected_struct(get_reflect_info_##S())
 

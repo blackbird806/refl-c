@@ -60,6 +60,10 @@ int main()
 
 	print_struct(info, &b);
 
+	field const* f_t = get_field(&info, "t");
+	float value = * (float*) GET_MEMBER_PTR(&b, *f_t);
+	printf("field : %f", value);
+
 	return 0;
 }
 
