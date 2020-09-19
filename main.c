@@ -64,6 +64,7 @@ int main()
 	float value = * (float*) GET_MEMBER_PTR(&b, *f_t);
 	printf("field : %f", value);
 
+	free_registered_structs();
 	return 0;
 }
 
